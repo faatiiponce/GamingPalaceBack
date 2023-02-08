@@ -9,6 +9,7 @@ const categories = require("./categories");
 const mercadopago = require("./mercadopago");
 const trademark = require("./trademark");
 const review = require("./review");
+const postchart = require("./postchart");
 
 const nodemailer = require("./nodemailer");
 
@@ -17,6 +18,7 @@ const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
+router.use("/postchart", postchart);
 router.use("/nmailer", nodemailer);
 router.use("/function2", tryfunction2);
 
