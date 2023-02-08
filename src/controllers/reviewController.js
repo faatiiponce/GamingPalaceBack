@@ -1,0 +1,20 @@
+const { Review } = require("../db");
+
+const newReview = async (obj) => {
+  try {
+    let objReview = {
+      author: obj.author,
+      title: obj.title,
+      description: obj.description,
+      rating: obj.rating,
+    };
+    let review = await Review.create(objReview);
+    return review;
+  } catch (error) {
+    console.log("Error", error);
+  }
+};
+
+module.exports = {
+  newReview,
+};
