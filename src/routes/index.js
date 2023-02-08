@@ -9,6 +9,7 @@ const categories = require("./categories");
 const mercadopago = require("./mercadopago");
 const trademark = require("./trademark");
 const review = require("./review");
+const users = require("./user");
 const postchart = require("./postchart");
 
 const nodemailer = require("./nodemailer");
@@ -21,7 +22,7 @@ const router = Router();
 router.use("/postchart", postchart);
 router.use("/nmailer", nodemailer);
 router.use("/function2", tryfunction2);
-
+router.use("/users", users);
 router.use("/categories", categories);
 router.use("/products", products);
 //router.use("/function", tryfunction);
