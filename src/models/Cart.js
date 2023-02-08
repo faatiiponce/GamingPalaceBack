@@ -3,15 +3,15 @@ module.exports = (sequelize) => {
   sequelize.define(
     "Cart",
     {
-      orderN:{
+      orderN: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         allowNull: false,
-        primaryKey: true,         
+        primaryKey: true,
       },
-      date:{
-      type: DataTypes.DATEONLY,
-      defaultValue: DataTypes.NOW           
+      date: {
+        type: DataTypes.DATEONLY,
+        defaultValue: DataTypes.NOW,
       },
       totalPrice: {
         type: DataTypes.FLOAT,
@@ -19,14 +19,21 @@ module.exports = (sequelize) => {
       },
       state: {
         type: DataTypes.ENUM,
-        values: ['created', 'processing', 'cancelled', 'completed', 'delivered','recived'],
-        defaultValue: 'created',
-        allowNull: false
+        values: [
+          "created",
+          "processing",
+          "cancelled",
+          "completed",
+          "delivered",
+          "recived",
+        ],
+        defaultValue: "created",
+        allowNull: false,
       },
       trackingNumber: {
         type: DataTypes.STRING,
         allowNull: false,
-        defaultValue: 'none'
+        defaultValue: "none",
       },
       delivery: {
         type: DataTypes.STRING,
