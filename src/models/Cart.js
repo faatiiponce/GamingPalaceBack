@@ -9,6 +9,7 @@ module.exports = (sequelize) => {
         allowNull: false,
         primaryKey: true,         
       },
+
       date:{
       type: DataTypes.DATEONLY,
       defaultValue: DataTypes.NOW           
@@ -33,6 +34,10 @@ module.exports = (sequelize) => {
         allowNull: false,
         defaultValue: "no",
       },
+      productsid: {
+        type: DataTypes.ARRAY(DataTypes.INTEGER),
+        //type: DataTypes.
+      }
     },
     {
       timestamps: false,
