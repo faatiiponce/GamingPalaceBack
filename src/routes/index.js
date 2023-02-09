@@ -12,6 +12,8 @@ const review = require("./review");
 
 const nodemailer = require("./nodemailer");
 
+const users = require("./User");
+
 const router = Router();
 
 // Configurar los routers
@@ -28,5 +30,8 @@ router.use("/trademark", trademark);
 
 router.use("/payment", mercadopago);
 router.use("/review", review);
+
+// router users
+router.use("/users", users)
 
 module.exports = router;
