@@ -19,8 +19,11 @@ const addproduct = require("./addproduct")
 const updateproduct = require("./updateproduct")
 const deleteproduct = require("./deleteproduct")
 const deleteallproducts = require("./deleteallproducts")
+const getcartbyid = require("./getcartbyid")
+
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
+router.use("/getcartbyid", getcartbyid);
 router.use("/deleteallproducts", deleteallproducts);
 router.use("/deleteproduct", deleteproduct);
 router.use("/updateproduct", updateproduct);

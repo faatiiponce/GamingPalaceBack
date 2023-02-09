@@ -2,6 +2,19 @@ const productsDB = require("./productsController");
 const { Products, User, Productinchart, Cart} = require("../db");
 const { Sequelize, ARRAY } = require('sequelize');
 
+async function getcartbyid (userid) {
+    console.log("ENTRANDO A FUNCION GET_CARD_BY_ID EN CONTROLLER")
+    console.log("LAS VARIABLES SON")
+    console.log(userid)
+    //DEVOLVER EL CARRITO DE UN USER
+    let response = await Productinchart.findAll({
+        where: {
+            CartId: userid
+        }
+    })
+    return response
+}
+
 async function deleteallproducts (userid) {
     console.log("ENTRANDO A FUNCION DELETE_ALL EN CONTROLLER")
     console.log("LAS VARIABLES SON")
@@ -69,6 +82,7 @@ module.exports = {
     addproduct,
     updateproduct,
     deleteproduct,
-    deleteallproducts
+    deleteallproducts,
+    getcartbyid
    };
    
