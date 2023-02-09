@@ -3,43 +3,45 @@ module.exports = (sequelize) => {
   sequelize.define(
     "Cart",
     {
-      orderN: {
+      id: {
         type: DataTypes.INTEGER,
-        autoIncrement: true,
-        allowNull: false,
         primaryKey: true,
       },
-      date: {
-        type: DataTypes.DATEONLY,
-        defaultValue: DataTypes.NOW,
-      },
-      totalPrice: {
-        type: DataTypes.FLOAT,
-        allowNull: false,
-      },
-      state: {
-        type: DataTypes.ENUM,
-        values: [
-          "created",
-          "processing",
-          "cancelled",
-          "completed",
-          "delivered",
-          "recived",
-        ],
-        defaultValue: "created",
-        allowNull: false,
-      },
-      trackingNumber: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        defaultValue: "none",
-      },
-      delivery: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        defaultValue: "no",
-      },
+      // orderN:{
+      //   type: DataTypes.INTEGER,
+      //   autoIncrement: true,
+      //   allowNull: false,
+      //   primaryKey: true,
+      // },
+
+      // date:{
+      // type: DataTypes.DATEONLY,
+      // defaultValue: DataTypes.NOW
+      // },
+      // totalPrice: {
+      //   type: DataTypes.FLOAT,
+
+      // },
+      // state: {
+      //   type: DataTypes.ENUM,
+      //   values: ['created', 'processing', 'cancelled', 'completed', 'delivered','recived'],
+      //   defaultValue: 'created',
+
+      // },
+      // trackingNumber: {
+      //   type: DataTypes.STRING,
+
+      //   defaultValue: 'none'
+      // },
+      // delivery: {
+      //   type: DataTypes.STRING,
+
+      //   defaultValue: "no",
+      // },
+      // productsid: {
+      //   type: DataTypes.ARRAY(DataTypes.INTEGER),
+      //   //type: DataTypes.
+      // }
     },
     {
       timestamps: false,

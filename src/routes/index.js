@@ -10,14 +10,25 @@ const mercadopago = require("./mercadopago");
 const trademark = require("./trademark");
 const review = require("./review");
 const users = require("./user");
+const postchart = require("./postchart");
 
 const nodemailer = require("./nodemailer");
 
 const router = Router();
+const addproduct = require("./addproduct")
+const updateproduct = require("./updateproduct")
+const deleteproduct = require("./deleteproduct")
+const deleteallproducts = require("./deleteallproducts")
+const getcartbyid = require("./getcartbyid")
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
-
+router.use("/getcartbyid", getcartbyid);
+router.use("/deleteallproducts", deleteallproducts);
+router.use("/deleteproduct", deleteproduct);
+router.use("/updateproduct", updateproduct);
+router.use("/addproduct", addproduct);
+router.use("/postchart", postchart);
 router.use("/nmailer", nodemailer);
 router.use("/function2", tryfunction2);
 router.use("/users", users);
