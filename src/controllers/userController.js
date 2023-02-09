@@ -1,4 +1,4 @@
-const { User } = require("../db");
+const { User, Productinchart, Cart} = require("../db");
 const users = require("../utils/usersDB");
 
 const getUsers = async() => {
@@ -39,8 +39,10 @@ const userToDB = async() => {
         return newUser
     })
     await User.bulkCreate(filter)
+    //
     }else{
         const usersEnable = await User.findAll({
+            include: { all: true, nested: true },
             where: {
               disabled: false,
             },
@@ -68,7 +70,15 @@ const postNewUser = async (userObj) => {
         role,
       };
   
-      const newUser = await User.create(user);
+      let newUser = await User.create(user);
+      //crear carrito
+      let newcart = await Cart.create({
+        id: id,
+        
+      })
+      //anexionar carrito al user
+       let creation = await newUser.addCart(newcart)
+      //return creation
       return newUser;
     } catch (error) {
       console.log("Error in postNewProduct", error);

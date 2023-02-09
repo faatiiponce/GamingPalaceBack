@@ -15,10 +15,16 @@ const postchart = require("./postchart");
 const nodemailer = require("./nodemailer");
 
 const router = Router();
-
+const addproduct = require("./addproduct")
+const updateproduct = require("./updateproduct")
+const deleteproduct = require("./deleteproduct")
+const deleteallproducts = require("./deleteallproducts")
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
-
+router.use("/deleteallproducts", deleteallproducts);
+router.use("/deleteproduct", deleteproduct);
+router.use("/updateproduct", updateproduct);
+router.use("/addproduct", addproduct);
 router.use("/postchart", postchart);
 router.use("/nmailer", nodemailer);
 router.use("/function2", tryfunction2);
