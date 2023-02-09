@@ -4,16 +4,19 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
-    "productinchart",
+    "Productinchart",
     {
       id: {
-        type: DataTypes.INTEGER, // genera un numero al azar
-        allowNull: false, // valor requerido
+        type: DataTypes.STRING, // genera un numero al azar
+        //allowNull: false, // valor requerido
         primaryKey: true,
+      },
+      idproduct: {
+        type: DataTypes.STRING,
       },
       quantity: {
         type: DataTypes.STRING,
-        allowNull: false,
+        //allowNull: false,
       },
       
     },
