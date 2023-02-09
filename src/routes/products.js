@@ -3,6 +3,7 @@ const router = Router();
 const {
   productsDB,
   postNewProduct,
+  productDetail,
 } = require("../controllers/productsController");
 
 router.get("/", async (req, res) => {
@@ -22,12 +23,19 @@ router.get("/:id", async (req, res) => {
     const infoID = await productsDB();
     if (id) {
       const productID = infoID.find((product) => product.id == id);
-      productID
-        ? res.status(200).json(productID)
-        : res.status(404).json("Not found product detail");
+      // productID
+      //   ? res.status(200).send(productID)
+      //   : "Not found product detail";
+      if (productID) {
+        res.status(200).send(productID);
+      } else {
+        throw new Error("Product detail not found");
+      }
     }
+    // res.status(201).send(infoID);
   } catch (error) {
-    res.status(404).json("Error in route getID Product", error);
+    // res.status(404).send("Error in route getID Product", error);
+    res.status(404).send(error.message);
   }
 });
 

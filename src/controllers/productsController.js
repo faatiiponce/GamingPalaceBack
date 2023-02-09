@@ -1,4 +1,4 @@
-const { Products } = require("../db");
+const { Products, Review } = require("../db");
 const products = require("../utils/loadDB");
 
 const getProducts = async () => {
@@ -46,6 +46,7 @@ const productsDB = async () => {
       where: {
         disabled: false,
       },
+      include: [{ model: Review }],
     });
     return productsEnable;
   }

@@ -15,12 +15,11 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      
+
       namedisplay: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-
 
       price: {
         type: DataTypes.INTEGER,
@@ -52,23 +51,19 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
 
-      
-
       description: {
         type: DataTypes.TEXT,
         allowNull: false,
       },
 
-     
+      // reviews: {
+      //   type: DataTypes.TEXT,
+      // },
 
       disabled: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
-      }
-      ,
-      
-
-     
+      },
 
       // reviews: {
       //   type: DataTypes.ARRAY(DataTypes.STRING),

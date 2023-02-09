@@ -1,4 +1,4 @@
-const { Review } = require("../db");
+const { Review, Products } = require("../db");
 
 const newReview = async (obj) => {
   try {
@@ -7,6 +7,8 @@ const newReview = async (obj) => {
       title: obj.title,
       description: obj.description,
       rating: obj.rating,
+      productId: obj.productId,
+      userId: obj.userId,
     };
     let review = await Review.create(objReview);
     return review;
