@@ -4,6 +4,7 @@ const {
   userToDB,
   validation,
   login,
+  updateInfo,
 } = require("../controllers/userController");
 const router = Router();
 
@@ -45,6 +46,23 @@ router.post("/login", async (req, res) => {
     res.status(404).send(error.message);
   }
 });
+
+// router.post("/:id", async (req, res) => {
+//   const { name, email, password, image, address, role } = req.body;
+//   try {
+//     let infoupdate = await updateInfo(
+//       name,
+//       email,
+//       password,
+//       image,
+//       address,
+//       role
+//     );
+//     res.status(200).send(infoupdate);
+//   } catch (error) {
+//     res.status(404).send(error.message);
+//   }
+// });
 
 router.post("/", async (req, res) => {
   const userObj = req.body;
