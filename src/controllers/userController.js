@@ -35,4 +35,22 @@ const postUser = async (objUser) => {
 
 };
 
-module.exports = postUser
+const getUsers = async() => {
+    
+    const allUsers = await User.findAll();
+
+    if(!allUsers.length){
+        return "No registered users"
+    }else{
+        return allUsers;
+    }
+    
+
+}
+
+
+
+module.exports = {
+    postUser,
+    getUsers
+    }
