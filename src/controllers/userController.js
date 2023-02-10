@@ -123,10 +123,35 @@ const login = async (email, password) => {
   }
 };
 
+const updateInfo = async (id, name, email, password, image, address, role) => {
+  //const { name, email, password, image, address, role } = req.body;
+  console.log("ENTRANDO A UPDATEINFO");
+  console.log("ID ES");
+  console.log(id);
+  let updateUser = await User.update(
+    {
+      name: name,
+      email: email,
+      password: password,
+      image: image,
+      address: address,
+      role: role,
+      // id: id,
+    },
+    { where: { id: id } }
+  );
+  console.log("UPDATE USER:");
+  console.log(updateUser);
+  return updateUser;
+};
+
+// const infoupdate = async();
+
 module.exports = {
   getUsers,
   userToDB,
   postNewUser,
   validation,
   login,
+  updateInfo,
 };
