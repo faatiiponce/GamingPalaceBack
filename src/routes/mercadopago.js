@@ -8,15 +8,8 @@ mercadopago.configure({ access_token: process.env.MERCADOPAGO_KEY });
 router.post("/", (req, res) => {
   const prod = req.body;
   let preference = {
-    items: [
-      {
-        title: prod.title,
-        currency_id: "USD",
-        quantity: prod.quantity,
-        price: prod.price,
-        unit_price: prod.price,
-      },
-    ],
+    items: [],
+
     back_urls: {
       success: "http://localhost:3000/home",
       failure: "http://localhost:3000/home",
@@ -25,6 +18,16 @@ router.post("/", (req, res) => {
     auto_return: "approved",
     binary_mode: true, //no permite un pending, pending sería pago en efectivo, ejemplo rapipago.
   };
+
+  prod?.forEach((prod) => {
+    preference.items.push({
+      title: prod.title,
+      currency_id: "USD",
+      quantity: prod.quantity,
+      price: prod.price,
+      unit_price: prod.price,
+    });
+  });
 
   mercadopago.preferences
     .create(preference)
