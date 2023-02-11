@@ -5,37 +5,37 @@ module.exports = (sequelize) => {
     {
       id: {
         type: DataTypes.INTEGER,
-        primaryKey: true
-      }
+        primaryKey: true,
+      },
       // orderN:{
       //   type: DataTypes.INTEGER,
       //   autoIncrement: true,
       //   allowNull: false,
-      //   primaryKey: true,         
+      //   primaryKey: true,
       // },
 
       // date:{
       // type: DataTypes.DATEONLY,
-      // defaultValue: DataTypes.NOW           
+      // defaultValue: DataTypes.NOW
       // },
       // totalPrice: {
       //   type: DataTypes.FLOAT,
-       
+
       // },
       // state: {
       //   type: DataTypes.ENUM,
       //   values: ['created', 'processing', 'cancelled', 'completed', 'delivered','recived'],
       //   defaultValue: 'created',
-        
+
       // },
       // trackingNumber: {
       //   type: DataTypes.STRING,
-        
+
       //   defaultValue: 'none'
       // },
       // delivery: {
       //   type: DataTypes.STRING,
-       
+
       //   defaultValue: "no",
       // },
       // productsid: {
