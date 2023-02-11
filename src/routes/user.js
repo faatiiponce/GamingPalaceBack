@@ -68,8 +68,9 @@ router.post("/", async (req, res) => {
   const userObj = req.body;
   console.log(userObj);
   try {
+   
     const postUser = await postNewUser(userObj);
-    validation(req.body.email);
+    validation(req.body.email);//al final no, PUSE EL VALIDATION PRIMERO PARA QUE TIRE ERROR SI EL MAIL ESTA REGISTRADO
 
     res.status(201).json(postUser);
   } catch (error) {

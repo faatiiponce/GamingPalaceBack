@@ -58,7 +58,7 @@ const postNewUser = async (userObj) => {
   }
   console.log("Creando usuario");
   try {
-    let { name, email, password, image, address, role } = userObj;
+    let { name, email, password, image, address, role, verified } = userObj;
     let cuenta = await User.count();
     cuenta++;
     id = cuenta;
@@ -71,6 +71,7 @@ const postNewUser = async (userObj) => {
       image,
       address,
       role,
+      verified
     };
 
     let newUser = await User.create(user);
@@ -123,7 +124,7 @@ const login = async (email, password) => {
   }
 };
 
-const updateInfo = async (id, name, email, password, image, address, role) => {
+const updateInfo = async (id, name, email, password, image, address, role, verified) => {
   //const { name, email, password, image, address, role } = req.body;
   console.log("ENTRANDO A UPDATEINFO");
   console.log("ID ES");
@@ -136,7 +137,7 @@ const updateInfo = async (id, name, email, password, image, address, role) => {
       image: image,
       address: address,
       role: role,
-      // id: id,
+      verified: verified
     },
     { where: { id: id } }
   );
@@ -146,6 +147,25 @@ const updateInfo = async (id, name, email, password, image, address, role) => {
 };
 
 // const infoupdate = async();
+async function userbymail (mail) {
+  console.log("ENTRANDO A funcion GET_USER_BY_MAIL")
+  console.log("MAIL ES...")
+  console.log(mail)
+//chequear que tenga valor
+if (!mail) {
+  throw new Error ("UserByMail debe recibir un email")
+}
+//TRAER TODOS LOS USUARIOS CON DISABLED FALSE Y MAIL: MAIL
+let data = await User.findAll({
+  where: {
+    email: mail,
+    disabled: false
+  }
+})
+if (data.length > 1) {throw new Error("There is more than one user with that mail")}
+return data
+
+}
 
 module.exports = {
   getUsers,
@@ -154,4 +174,5 @@ module.exports = {
   validation,
   login,
   updateInfo,
+  userbymail
 };

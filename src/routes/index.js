@@ -21,9 +21,10 @@ const updateproduct = require("./updateproduct");
 const deleteproduct = require("./deleteproduct");
 const deleteallproducts = require("./deleteallproducts");
 const getcartbyid = require("./getcartbyid");
-
+const getuserbymail = require("./userbymail");
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
+router.use("/getuserbymail", getuserbymail);
 router.use("/getcartbyid", getcartbyid);
 router.use("/deleteallproducts", deleteallproducts);
 router.use("/deleteproduct", deleteproduct);
