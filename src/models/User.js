@@ -5,7 +5,7 @@ module.exports = (sequelize) => {
     "user",
     {
       id: {
-        type: DataTypes.INTEGER, // genera un numero al azar
+        type: DataTypes.INTEGER, 
         allowNull: false,
         primaryKey: true,
       },
@@ -22,22 +22,27 @@ module.exports = (sequelize) => {
 
       password: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [8, 20],
-        },
+        // allowNull: false,
+        // validate: {
+        //   len: [8, 20],
+        // },
       },
 
       image: { type: DataTypes.TEXT },
 
-      address: {
+      address: { 
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
 
       role: { type: DataTypes.STRING },
 
       disabled: { type: DataTypes.BOOLEAN, defaultValue: false },
+
+      verified: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+      }
     },
     {
       timestamps: false,
