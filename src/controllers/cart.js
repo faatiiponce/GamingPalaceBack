@@ -38,7 +38,7 @@ async function deleteproduct (userid, idproduct, quantity) {
     //ELIMINAR EL PRODUCTO
     let res = await Productinchart.destroy({
             where: {
-                id: idproduct,
+                idproduct: idproduct,
                 CartId: userid
             }
         })
@@ -54,7 +54,7 @@ async function updateproduct (userid, idproduct, quantity) {
     //ACTUALIZAR EL PRODUCTO
     let response = await Productinchart.update({quantity: quantity}, {
         where: {
-            id: idproduct,
+            idproduct: idproduct,
             CartId: userid
         }
     })
