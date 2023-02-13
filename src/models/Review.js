@@ -35,7 +35,7 @@ module.exports = (sequelize) => {
       },
       userId: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        // allowNull: false,
       },
     },
     { timestamps: false, createdAt: false }
