@@ -4,8 +4,12 @@ const router = Router();
 
 router.post("/", async (req, res) => {
   try {
-    let postReview = await newReview(req.body);
-    res.status(201).send(postReview);
+    //let postReview = await
+    newReview(req.body).then((x) => {
+      res.status(200).send("Review agregado");
+      console.log("X ES:");
+      console.log(x);
+    });
   } catch (error) {
     res.status(404).send("Error");
   }

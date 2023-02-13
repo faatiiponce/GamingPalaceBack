@@ -12,10 +12,10 @@ module.exports = (sequelize) => {
         primaryKey: true,
       },
       idproduct: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
       },
       quantity: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         //allowNull: false,
       },
       

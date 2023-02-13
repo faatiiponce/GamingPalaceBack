@@ -10,8 +10,17 @@ router.post('/', async (req, res) => {
     console.log(req.body)
     const {userid, idproduct, quantity} = req.body
     try {
-        let response = await updateproduct(userid, idproduct, quantity)
-        res.status(201).send(response)
+        //let responseupdate = await updateproduct(userid, idproduct, quantity)
+        updateproduct(userid, idproduct, quantity)
+        .then( (x) => {
+            console.log("ROUTER UPDATE PRODUCT RESPONSE ES...")
+            //console.log(responseupdate)
+            console.log(x)
+            res.status(201).send(x)
+        })
+       
+        
+        console.log("SALIENDO DE ROUTER UPDATE PRODUCTS")
     } catch (error) {
         res.status(404).send(error.message)
     }

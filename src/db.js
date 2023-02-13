@@ -45,9 +45,10 @@ const { Products, Category, Review, Cart, User, Productinchart } =
 //Cart.hasMany(Productinchart)
 User.hasMany(Cart);
 Cart.hasMany(Productinchart);
-
-Products.hasMany(Review);
-Review.belongsTo(Products);
+//AGREGAR REVIEW
+User.hasMany(Review) 
+ Products.hasMany(Review);
+ Review.belongsTo(Products);
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

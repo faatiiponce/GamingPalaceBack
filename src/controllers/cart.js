@@ -27,6 +27,7 @@ async function deleteallproducts (userid) {
             CartId: userid
         }
     })
+    return res
 }
 async function deleteproduct (userid, idproduct, quantity) {
     console.log("ENTRANDO A FUNCION DELETE EN CONTROLLER")
@@ -41,6 +42,7 @@ async function deleteproduct (userid, idproduct, quantity) {
                 CartId: userid
             }
         })
+        return res
 }
 
 async function updateproduct (userid, idproduct, quantity) {
@@ -56,7 +58,7 @@ async function updateproduct (userid, idproduct, quantity) {
             CartId: userid
         }
     })
-    
+    return response
 }
 async function addproduct (userid, idproduct, quantity) {
     console.log("ENTRANDO A FUNCION ADDPRODUCT EN CONTROLLER")

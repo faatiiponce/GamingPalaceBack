@@ -46,7 +46,7 @@ const productsDB = async () => {
       where: {
         disabled: false,
       },
-      include: [{ model: Review }],
+      include: { all: true, nested: true },
     });
     return productsEnable;
   }
