@@ -34,6 +34,7 @@ const userToDB = async () => {
         image: user.image,
         address: user.address,
         role: user.role,
+        //verified: user.verified
       };
       return newUser;
     });

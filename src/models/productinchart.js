@@ -6,19 +6,18 @@ module.exports = (sequelize) => {
   sequelize.define(
     "Productinchart",
     {
-      id: {
-        type: DataTypes.STRING, // genera un numero al azar
-        //allowNull: false, // valor requerido
-        primaryKey: true,
-      },
+      // id: {
+      //   type: DataTypes.STRING, // genera un numero al azar
+      //   //allowNull: false, // valor requerido
+      //   primaryKey: true,
+      // },
       idproduct: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
       },
       quantity: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         //allowNull: false,
       },
-      
     },
     {
       timestamps: false,
