@@ -28,16 +28,7 @@ module.exports = (sequelize) => {
 
       imageurl: {
         type: DataTypes.TEXT,
-        public_id: {
-          type: DataTypes.STRING,
-        },
-        url: {
-          type: DataTypes.STRING,
-        },
       },
-
-      // imagecloudinary: {
-      // },
 
       trademark: {
         type: DataTypes.TEXT,

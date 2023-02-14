@@ -1,6 +1,5 @@
 const { Products, Review } = require("../db");
 const products = require("../utils/loadDB");
-const cloudinary = require("../utils/cloudinary");
 
 const getProducts = async () => {
   const allProducts = await Products.count();
@@ -64,19 +63,12 @@ const postNewProduct = async (objProduct) => {
     namedisplay = name;
     name = name.toLowerCase();
 
-    const result = await cloudinary.uploader.upload(imageurl, {
-      folder: "productsGaming",
-    });
-
     const product = {
       id,
       name,
       namedisplay,
       price,
-      imageurl: {
-        public_id: result.public_id,
-        url: result.secure_url,
-      },
+      imageurl,
       category,
       trademark,
       description,

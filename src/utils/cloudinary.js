@@ -1,14 +1,24 @@
 // set CLOUDINARY_URL=cloudinary://432637912755259:5HzYjsq6JEfC-81Mt1a-OqUCDZU@ddxezv6as
-const cloudinary = require("cloudinary").v2;
+// const cloudinary = require("cloudinary").v2;
+// require("dotenv").config();
 
-// Return "https" URLs by setting secure: true
-cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.CLOUD_KEY,
-  api_secret: process.env.CLOUD_KEY_SECRET,
-});
+// // Return "https" URLs by setting secure: true
+// cloudinary.config({
+//   cloud_name: process.env.CLOUD_NAME,
+//   api_key: process.env.CLOUD_KEY,
+//   api_secret: process.env.CLOUD_KEY_SECRET,
+// });
 
-module.exports = cloudinary;
+// const uploadImage = (filePath) => {
+//   return cloudinary.uploader.upload(filePath, {
+//     folder: "productsGaming",
+//   });
+// };
+
+// const deleteImage = (id) => {
+//   return cloudinary.uploader.destroy(id);
+// };
+// module.exports = { cloudinary, uploadImage, deleteImage };
 
 // // Log the configuration
 // console.log(cloudinary.config());
