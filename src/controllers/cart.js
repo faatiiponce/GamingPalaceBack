@@ -55,7 +55,7 @@ async function updateproduct(userid, idproduct, quantity) {
     { quantity: quantity },
     {
       where: {
-        id: idproduct,
+        idproduct: idproduct,
         CartId: userid,
       },
     }

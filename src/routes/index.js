@@ -24,13 +24,17 @@ const getcartbyid = require("./getcartbyid");
 const getuserbymail = require("./userbymail");
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
-router.use("/getuserbymail", getuserbymail);
-router.use("/getcartbyid", getcartbyid);
+
+//CART
 router.use("/deleteallproducts", deleteallproducts);
 router.use("/deleteproduct", deleteproduct);
 router.use("/updateproduct", updateproduct);
 router.use("/addproduct", addproduct);
+router.use("/getcartbyid", getcartbyid);
+
 router.use("/postchart", postchart);
+router.use("/getuserbymail", getuserbymail);
+
 router.use("/nmailer", nodemailer);
 router.use("/function2", tryfunction2);
 router.use("/users", users);
