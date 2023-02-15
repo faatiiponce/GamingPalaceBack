@@ -49,6 +49,10 @@ Cart.hasMany(Productinchart);
 User.hasMany(Review);
 Products.hasMany(Review);
 Review.belongsTo(Products);
+User.hasMany(Review);
+Products.hasMany(Review);
+Review.belongsTo(Products);
+User.hasMany(Favorite);
 
 User.hasMany(Favorite);
 

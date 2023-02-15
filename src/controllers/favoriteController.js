@@ -1,21 +1,18 @@
 const { Favorite, User } = require("../db");
 
-const addFavorite = async (obj) => {
-  try {
-    let addObj = {
-      idUser: obj.idUser,
-      idproduct: obj.idproduct,
-    };
-    // let review = await Review.create(objReview);
-    Favorite.create(addObj).then((x) => {
-      return x;
-    });
-    //return review;
-  } catch (error) {
-    console.log("Error", error);
-  }
-};
+async function getfavbyid(userId) {
+  console.log("ENTRANDO A FUNCION GET_CARD_BY_ID EN CONTROLLER");
+  console.log("LAS VARIABLES SON");
+  console.log(userid);
+  //DEVOLVER EL CARRITO DE UN USER
+  let response = await Favorite.findAll({
+    where: {
+      userId: userId,
+    },
+  });
+  return response;
+}
 
 module.exports = {
-  addFavorite,
+  getfavbyid,
 };
