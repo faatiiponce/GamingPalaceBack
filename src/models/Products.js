@@ -3,7 +3,7 @@ const { DataTypes } = require("sequelize");
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define(
+  const Products = sequelize.define(
     "products",
     {
       id: {
@@ -79,4 +79,16 @@ module.exports = (sequelize) => {
       timestamps: false,
     }
   );
+  Products.beforeSave(async (product, options) => {
+    if (product.changed("imageurl")) {
+      try {
+        const result = await cloudinary.uploader.upload(product.imageurl);
+        product.imageurl = result.secure_url;
+      } catch (error) {
+        throw new Error("Error al subir la imagen");
+      }
+    }
+  });
+
+  return Products;
 };
