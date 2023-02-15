@@ -22,6 +22,8 @@ const deleteproduct = require("./deleteproduct");
 const deleteallproducts = require("./deleteallproducts");
 const getcartbyid = require("./getcartbyid");
 const getuserbymail = require("./userbymail");
+const deletefavorite = require("./deleteFavorite");
+const addfavorite = require("./addFavorites");
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
@@ -34,7 +36,7 @@ router.use("/getcartbyid", getcartbyid);
 
 router.use("/postchart", postchart);
 router.use("/getuserbymail", getuserbymail);
-
+router.use("/deletefav", deletefavorite);
 router.use("/nmailer", nodemailer);
 router.use("/function2", tryfunction2);
 router.use("/users", users);
@@ -45,7 +47,7 @@ router.use("/products", products);
 //router.use("/function", tryfunction);
 
 router.use("/trademark", trademark);
-
+router.use("/favorite", addfavorite);
 router.use("/payment", mercadopago);
 router.use("/review", review);
 
