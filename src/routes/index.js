@@ -25,6 +25,7 @@ const getuserbymail = require("./userbymail");
 const deletefavorite = require("./deleteFavorite");
 const addfavorite = require("./addFavorites");
 const getfavorites = require("./getFavorites");
+const deleteallfav = require("./deleteAllFavorite");
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
@@ -55,5 +56,6 @@ router.use("/review", review);
 router.use("/favorite", addfavorite);
 router.use("/deletefav", deletefavorite);
 router.use("/getfavorites", getfavorites);
+router.use("/deleteallfav", deleteallfav);
 
 module.exports = router;
