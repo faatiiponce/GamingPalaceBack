@@ -22,6 +22,9 @@ const deleteproduct = require("./deleteproduct");
 const deleteallproducts = require("./deleteallproducts");
 const getcartbyid = require("./getcartbyid");
 const getuserbymail = require("./userbymail");
+
+const addfavorite = require("./favorite");
+const deletefavorite = require("./deletefavorite");
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
@@ -48,5 +51,8 @@ router.use("/trademark", trademark);
 
 router.use("/payment", mercadopago);
 router.use("/review", review);
+
+router.use("/favorite", addfavorite);
+router.use("/deletefav", deletefavorite);
 
 module.exports = router;
