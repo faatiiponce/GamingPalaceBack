@@ -12,11 +12,11 @@ router.post("/", async (req, res) => {
       },
     });
 
-    await Favorite.save(deletee);
+    //await Favorite.save(deletee);
 
-    res.status(201).send("favorito eliminado");
+    res.status(201).send("Product removed from favorites");
   } catch (error) {
-    res.status(404).send("Products removed from favorites");
+    res.status(404).send(error.message);
   }
 });
 
