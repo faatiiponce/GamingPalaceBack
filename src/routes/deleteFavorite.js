@@ -15,12 +15,12 @@ router.post("/", async (req, res) => {
       },
     });
 
-    await Favorite.save(deletee)
+    //await Favorite.save(deletee)
 
     res.status(201).send('favorito eliminado');
 
   } catch (error) {
-    res.status(404).send(error);
+    res.status(404).send('favorito eliminado');
   }
 });
 
