@@ -33,18 +33,71 @@ let transporter = nodemailer.createTransport({//SETEO DE LAS VARIABLES DEL SERVI
   port: 587,
   //secure: true,
   auth: {
-    user: "gaming.palace.gp@gmail.com", //USUARIO O DIRECCIÓN DE EMAIL EN ESE SERVER
-    pass: "VqcAjUSwvO3p26PR" //CONTRASEÑA EN ESE SERVER
+    user: "aob@live.com.ar", //USUARIO O DIRECCIÓN DE EMAIL EN ESE SERVER
+    pass: "sLh3jU6FK1nvHfyW" //CONTRASEÑA EN ESE SERVER
   }
 });
 //ARMAR CUERPO DE EMAIL Y ENVIAR
+let mapping = ""
+
+for(let i=0; i<body.prodsPay.length; i++){
+mapping = mapping + `<tr>\n`
+mapping = mapping + `<td>${body.prodsPay[i].name}</td>\n`
+mapping = mapping + `<td>${body.prodsPay[i].quantity}</td>\n`
+mapping = mapping + `<td>${body.prodsPay[i].price}</td>\n`
+mapping = mapping + `</tr>\n`
+}
+
+console.log("mappinggggg", mapping)
+
+{/* <tr>
+         <td>${body.prodsPay[0].name}</td>
+
+         <td>${body.prodsPay[0].quantity}</td>
+
+         <td>${body.prodsPay[0].price}</td>
+       </tr> */}
+
+
 let info = await transporter.sendMail({
   from: '"GAMING PALACE" <gaming-palace@gamingpalace.com>', // DETALLES DEL EMAIL A ENVIAR
   to: body.destiny, // DESTINATARIO O LISTA DE DESTINATARIOS
   subject: body.subject, // ASUNTO DEL MAIL
   text: body.text, // TEXTO DEL MAIL
-  html: body.html, // HTML DEL MAIL (FORMATO WEB, SOLO HTML)
+  html:
+
+  `<table>
+		<tr >
+			<td ><h1>Encabezado del correo electrónico</h1></td>
+		</tr>
+		<tr>
+			<td><p>Aquí va el contenido principal del correo electrónico.</p></td>
+			<td><p>Aquí puede haber un anuncio, una imagen, un botón, etc.</p></td>
+		</tr>
+    <div style='border: 5px solid black; background-color: red'>
+  <table>
+    <tbody>
+    <tr>
+      <th>Detail</th>
+      <th>Quantity</th>
+      <th>Unit price</th>
+    </tr>
+    
+      <tr>
+        ${mapping}
+      </tr>
+      
+    
+    </tbody>
+  </table>
+  </div> 
+		<tr >
+			<td ><p>Pie de página del correo electrónico</p></td>
+		</tr>
+	</table>`
+  , // HTML DEL MAIL (FORMATO WEB, SOLO HTML)
 });
+//ARMAR RESPUESTA DEL SERVER
 //ARMAR RESPUESTA DEL SERVER
 let response = {
   message: "EMAIL HAS BEEN SENT WITH THESE DETAILS. EL EMAIL HA SIDO ENVIADO CON ESTOS DETALLES",
