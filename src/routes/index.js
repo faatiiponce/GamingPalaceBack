@@ -27,11 +27,14 @@ const addfavorite = require("./addFavorites");
 const getfavorites = require("./getFavorites");
 const deleteallfav = require("./deleteAllFavorite");
 const changeproduct3 = require("./changeproduct");
+
+const registerpurchaseroute = require("./Statistics");
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
 
-
+//STATISTICS
+router.use("/stats", registerpurchaseroute)
 //UPDATE PRODUCT
 //(idproduct, productname, namedisplay, price, imageurl, trademark, category, description, disabled) por body
 router.use("/change", changeproduct3);

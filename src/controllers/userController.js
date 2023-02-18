@@ -2,6 +2,18 @@ const { User, Productinchart, Cart } = require("../db");
 const users = require("../utils/usersDB");
 
 const getUsers = async () => {
+//test
+let fecha = new Date()
+console.log("FECHA ES...")
+console.log(fecha)
+let anio = getFullYear(fecha)
+console.log("AÑO ES...")
+console.log(anio)
+let mes = getMonth(fecha)
+console.log("MES ES...")
+console.log(mes)
+
+  //end test
   const allUsers = await User.count();
   if (allUsers < 1) {
     let newUser = {};
