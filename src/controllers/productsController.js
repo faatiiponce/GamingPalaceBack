@@ -15,6 +15,7 @@ const getProducts = async () => {
         category: product.category,
         trademark: product.trademark,
         description: product.description,
+        stock: 10
       };
       return obj;
     });
@@ -37,6 +38,7 @@ const productsDB = async () => {
         category: product.category,
         trademark: product.trademark,
         description: product.description,
+        stock: 10
       };
       return obj;
     });
@@ -54,7 +56,7 @@ const productsDB = async () => {
 
 const postNewProduct = async (objProduct) => {
   try {
-    let { name, price, imageurl, category, trademark, description } =
+    let { name, price, imageurl, category, trademark, description, stock } =
       objProduct;
     let cuenta = await Products.count();
     cuenta++;
@@ -72,6 +74,7 @@ const postNewProduct = async (objProduct) => {
       category,
       trademark,
       description,
+      stock
     };
 
     const newProduct = await Products.create(product);

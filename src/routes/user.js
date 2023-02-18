@@ -11,6 +11,18 @@ const router = Router();
 console.log("entrando a users!");
 
 router.get("/", async (req, res) => {
+  //test
+let fecha = new Date()
+console.log("FECHA ES...")
+console.log(fecha)
+let anio = fecha.getFullYear()
+console.log("AÑO ES...")
+console.log(anio)
+let mes = fecha.getMonth()
+console.log("MES ES...")
+console.log(mes)
+
+  //end test
   try {
     {
       let allUsers = await userToDB();

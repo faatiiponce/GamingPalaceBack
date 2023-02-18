@@ -75,9 +75,11 @@ async function addproduct(userid, idproduct, quantity) {
     id: newid,
     idproduct: idproduct,
     quantity: quantity,
-  });
+  })
   //VINCULAR PRODUCT IN CHART AL USER
   let user = await Cart.findByPk(userid); //TRAIGO AL USER PARA TENERLO EN UNA VARIABLE USABLE
+  console.log("USER EN ADD PRODUCT ES...")
+  console.log(user)
   let vinculation = await user.addProductinchart(newproduct); //VINCULO O AGREGO UN PRODUCT CHART AL USUARIO
   console.log(await user.getProductincharts());
   return vinculation;

@@ -7,7 +7,8 @@ router.post("/", async (req, res) => {
   console.log(req.body);
   console.log("REQ ES:");
   console.log(req);
-  const { id, name, email, password, image, address, role, verified } = req.body;
+  const { id, name, email, password, image, address, role, verified } =
+    req.body;
   try {
     let infoupdate = await updateInfo(
       id,

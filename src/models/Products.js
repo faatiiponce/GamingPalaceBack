@@ -63,7 +63,13 @@ module.exports = (sequelize) => {
       disabled: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
+
       },
+        stock: {
+          type: DataTypes.INTEGER,
+          defaultValue: 10
+        }
+      
 
       // reviews: {
       //   type: DataTypes.ARRAY(DataTypes.STRING),
