@@ -38,13 +38,51 @@ let transporter = nodemailer.createTransport({//SETEO DE LAS VARIABLES DEL SERVI
   }
 });
 //ARMAR CUERPO DE EMAIL Y ENVIAR
-let info = await transporter.sendMail({
-  from: '"GAMING PALACE" <gaming-palace@gamingpalace.com>', // DETALLES DEL EMAIL A ENVIAR
-  to: body.destiny, // DESTINATARIO O LISTA DE DESTINATARIOS
-  subject: body.subject, // ASUNTO DEL MAIL
-  text: body.text, // TEXTO DEL MAIL
-  html: body.html, // HTML DEL MAIL (FORMATO WEB, SOLO HTML)
-});
+let mapping = ""
+
+for(let i=0; i<body.prodsPay.length; i++){
+mapping = mapping + `<tr>\n`
+mapping = mapping + `<td>${body.prodsPay[i].name}</td>\n`
+mapping = mapping + `<td>${body.prodsPay[i].quantity}</td>\n`
+mapping = mapping + `<td>${body.prodsPay[i].price}</td>\n`
+mapping = mapping + `</tr>\n`
+}
+
+console.log("mappinggggg", mapping)
+
+{/* <tr>
+         <td>${body.prodsPay[0].name}</td>
+
+         <td>${body.prodsPay[0].quantity}</td>
+
+         <td>${body.prodsPay[0].price}</td>
+       </tr> */}
+
+
+       let info = await transporter.sendMail({
+        from: '"GAMING PALACE" <gaming-palace@gamingpalace.com>', // DETALLES DEL EMAIL A ENVIAR
+        to: body.destiny, // DESTINATARIO O LISTA DE DESTINATARIOS
+        subject: body.subject, // ASUNTO DEL MAIL
+        text: body.text, // TEXTO DEL MAIL
+        html: 
+        `<div style='border: 5px solid black; background-color: red'>
+        <table>
+          <tbody>
+          <tr>
+            <th>Detail</th>
+            <th>Quantity</th>
+            <th>Unit price</th>
+          </tr>
+          
+            <tr>
+              ${mapping}
+            </tr>
+            
+          
+          </tbody>
+        </table>
+        </div> `, // HTML DEL MAIL (FORMATO WEB, SOLO HTML)
+      });
 //ARMAR RESPUESTA DEL SERVER
 let response = {
   message: "EMAIL HAS BEEN SENT WITH THESE DETAILS. EL EMAIL HA SIDO ENVIADO CON ESTOS DETALLES",
