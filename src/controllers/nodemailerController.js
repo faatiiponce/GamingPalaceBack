@@ -1,4 +1,4 @@
-const productsDB = require("./productsController");
+  const productsDB = require("./productsController");
 const { Products } = require("../db");
 const nodemailer = require("nodemailer");
 
