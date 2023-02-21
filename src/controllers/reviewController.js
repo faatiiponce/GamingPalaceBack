@@ -8,7 +8,7 @@ const newReview = async (obj) => {
       description: obj.description,
       rating: obj.rating,
       productId: obj.productId,
-      userId: obj.userId,
+      // userId: obj.userId,
     };
     // let review = await Review.create(objReview);
     Review.create(objReview).then((x) => {

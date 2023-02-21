@@ -2,16 +2,16 @@ const { User, Productinchart, Cart } = require("../db");
 const users = require("../utils/usersDB");
 
 const getUsers = async () => {
-//test
-let fecha = new Date()
-console.log("FECHA ES...")
-console.log(fecha)
-let anio = getFullYear(fecha)
-console.log("AÑO ES...")
-console.log(anio)
-let mes = getMonth(fecha)
-console.log("MES ES...")
-console.log(mes)
+  //test
+  let fecha = new Date();
+  console.log("FECHA ES...");
+  console.log(fecha);
+  let anio = getFullYear(fecha);
+  console.log("AÑO ES...");
+  console.log(anio);
+  let mes = getMonth(fecha);
+  console.log("MES ES...");
+  console.log(mes);
 
   //end test
   const allUsers = await User.count();
@@ -63,6 +63,16 @@ const userToDB = async () => {
   }
 };
 
+const usersDelete = async () => {
+  const usersDel = await User.findAll({
+    where: {
+      disabled: true,
+    },
+    include: { all: true, nested: true },
+  });
+  return usersDel;
+};
+
 const postNewUser = async (userObj) => {
   let response = await validation(userObj.email);
   if (response === "Email already registered") {
@@ -84,7 +94,7 @@ const postNewUser = async (userObj) => {
       image,
       address,
       role,
-      verified
+      verified,
     };
 
     let newUser = await User.create(user);
@@ -137,7 +147,16 @@ const login = async (email, password) => {
   }
 };
 
-const updateInfo = async (id, name, email, password, image, address, role, verified) => {
+const updateInfo = async (
+  id,
+  name,
+  email,
+  password,
+  image,
+  address,
+  role,
+  verified
+) => {
   //const { name, email, password, image, address, role } = req.body;
   console.log("ENTRANDO A UPDATEINFO");
   console.log("ID ES");
@@ -150,7 +169,7 @@ const updateInfo = async (id, name, email, password, image, address, role, verif
       image: image,
       address: address,
       role: role,
-      verified: verified
+      verified: verified,
     },
     { where: { id: id } }
   );
@@ -160,24 +179,25 @@ const updateInfo = async (id, name, email, password, image, address, role, verif
 };
 
 // const infoupdate = async();
-async function userbymail (mail) {
-  console.log("ENTRANDO A funcion GET_USER_BY_MAIL")
-  console.log("MAIL ES...")
-  console.log(mail)
-//chequear que tenga valor
-if (!mail) {
-  throw new Error ("UserByMail debe recibir un email")
-}
-//TRAER TODOS LOS USUARIOS CON DISABLED FALSE Y MAIL: MAIL
-let data = await User.findAll({
-  where: {
-    email: mail,
-    disabled: false
+async function userbymail(mail) {
+  console.log("ENTRANDO A funcion GET_USER_BY_MAIL");
+  console.log("MAIL ES...");
+  console.log(mail);
+  //chequear que tenga valor
+  if (!mail) {
+    throw new Error("UserByMail debe recibir un email");
   }
-})
-if (data.length > 1) {throw new Error("There is more than one user with that mail")}
-return data
-
+  //TRAER TODOS LOS USUARIOS CON DISABLED FALSE Y MAIL: MAIL
+  let data = await User.findAll({
+    where: {
+      email: mail,
+      disabled: false,
+    },
+  });
+  if (data.length > 1) {
+    throw new Error("There is more than one user with that mail");
+  }
+  return data;
 }
 
 module.exports = {
@@ -187,5 +207,6 @@ module.exports = {
   validation,
   login,
   updateInfo,
-  userbymail
+  userbymail,
+  usersDelete,
 };

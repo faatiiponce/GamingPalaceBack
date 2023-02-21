@@ -4,6 +4,7 @@ const {
   productsDB,
   postNewProduct,
   productDetail,
+  productsDelete,
 } = require("../controllers/productsController");
 
 router.get("/", async (req, res) => {
@@ -11,6 +12,17 @@ router.get("/", async (req, res) => {
     {
       let allProducts = await productsDB();
       res.status(201).send(allProducts);
+    }
+  } catch (error) {
+    res.status(404).send(error);
+  }
+});
+
+router.get("/delete", async (req, res) => {
+  try {
+    {
+      let deleteProducts = await productsDelete();
+      res.status(201).send(deleteProducts);
     }
   } catch (error) {
     res.status(404).send(error);
