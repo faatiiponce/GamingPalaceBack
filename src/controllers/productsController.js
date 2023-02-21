@@ -15,7 +15,7 @@ const getProducts = async () => {
         category: product.category,
         trademark: product.trademark,
         description: product.description,
-        stock: 10
+        stock: 10,
       };
       return obj;
     });
@@ -38,7 +38,7 @@ const productsDB = async () => {
         category: product.category,
         trademark: product.trademark,
         description: product.description,
-        stock: 10
+        stock: 10,
       };
       return obj;
     });
@@ -52,6 +52,16 @@ const productsDB = async () => {
     });
     return productsEnable;
   }
+};
+
+const productsDelete = async () => {
+  const productsDel = await Products.findAll({
+    where: {
+      disabled: true,
+    },
+    include: { all: true, nested: true },
+  });
+  return productsDel;
 };
 
 const postNewProduct = async (objProduct) => {
@@ -74,7 +84,7 @@ const postNewProduct = async (objProduct) => {
       category,
       trademark,
       description,
-      stock
+      stock,
     };
 
     const newProduct = await Products.create(product);
@@ -88,4 +98,5 @@ module.exports = {
   getProducts,
   productsDB,
   postNewProduct,
+  productsDelete,
 };

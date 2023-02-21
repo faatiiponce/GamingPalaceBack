@@ -5,6 +5,7 @@ const {
   validation,
   login,
   updateInfo,
+  usersDelete,
 } = require("../controllers/userController");
 const router = Router();
 
@@ -12,21 +13,32 @@ console.log("entrando a users!");
 
 router.get("/", async (req, res) => {
   //test
-let fecha = new Date()
-console.log("FECHA ES...")
-console.log(fecha)
-let anio = fecha.getFullYear()
-console.log("AÑO ES...")
-console.log(anio)
-let mes = fecha.getMonth()
-console.log("MES ES...")
-console.log(mes)
+  let fecha = new Date();
+  console.log("FECHA ES...");
+  console.log(fecha);
+  let anio = fecha.getFullYear();
+  console.log("AÑO ES...");
+  console.log(anio);
+  let mes = fecha.getMonth();
+  console.log("MES ES...");
+  console.log(mes);
 
   //end test
   try {
     {
       let allUsers = await userToDB();
       res.status(201).send(allUsers);
+    }
+  } catch (error) {
+    res.status(404).send(error);
+  }
+});
+
+router.get("/delete", async (req, res) => {
+  try {
+    {
+      let deleteUsers = await usersDelete();
+      res.status(201).send(deleteUsers);
     }
   } catch (error) {
     res.status(404).send(error);
@@ -80,9 +92,8 @@ router.post("/", async (req, res) => {
   const userObj = req.body;
   console.log(userObj);
   try {
-   
     const postUser = await postNewUser(userObj);
-    validation(req.body.email);//al final no, PUSE EL VALIDATION PRIMERO PARA QUE TIRE ERROR SI EL MAIL ESTA REGISTRADO
+    validation(req.body.email); //al final no, PUSE EL VALIDATION PRIMERO PARA QUE TIRE ERROR SI EL MAIL ESTA REGISTRADO
 
     res.status(201).json(postUser);
   } catch (error) {
