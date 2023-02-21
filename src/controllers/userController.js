@@ -55,9 +55,6 @@ const userToDB = async () => {
   } else {
     const usersEnable = await User.findAll({
       include: { all: true, nested: true },
-      where: {
-        disabled: false,
-      },
     });
     return usersEnable;
   }
