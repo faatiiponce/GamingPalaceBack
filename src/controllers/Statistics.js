@@ -51,6 +51,21 @@ async function returnbyyear(year) {
   return response;
 }
 
+async function returnbymonth(month) {
+  console.log("ENTRANDO A returnbyyear EN ROUTES");
+
+  console.log("AÑO ES...");
+  console.log(month);
+  let response = await Historicproduct.findAll({
+    where: {
+      month: month,
+    },
+  });
+  console.log("historic products son...");
+  console.log(response);
+  return response;
+}
+
 async function allStatics() {
   let response = await Historicproduct.findAll();
   console.log("historic products son...");
@@ -119,4 +134,5 @@ module.exports = {
   returnbydate,
   returnbyyear,
   allStatics,
+  returnbymonth,
 };

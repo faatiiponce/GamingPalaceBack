@@ -5,6 +5,7 @@ const {
   returnbydate,
   returnbyyear,
   allStatics,
+  returnbymonth,
 } = require("../controllers/Statistics");
 
 router.get("/", async (req, res) => {
@@ -21,13 +22,12 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/getbymonth/:year/:month", async (req, res) => {
+router.get("/getbymonth/:month", async (req, res) => {
   console.log("ENTRANDO A getbymonth EN ROUTES");
-  const { year } = req.params;
   const { month } = req.params;
   try {
     let response;
-    returnbydate(year, month).then((x) => {
+    returnbymonth(month).then((x) => {
       console.log("X ES...");
       console.log(x);
       response = x;
