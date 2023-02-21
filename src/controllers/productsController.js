@@ -45,9 +45,6 @@ const productsDB = async () => {
     return await Products.bulkCreate(filter);
   } else {
     const productsEnable = await Products.findAll({
-      where: {
-        disabled: false,
-      },
       include: { all: true, nested: true },
     });
     return productsEnable;
