@@ -11,7 +11,7 @@ router.post("/", (req, res) => {
     items: [],
 
     back_urls: {
-      success: "http://localhost:3000/home",
+      success: "http://localhost:3000/purchase-success",
       failure: "http://localhost:3000/home",
       pending: "http://localhost:3000/home",
     },
