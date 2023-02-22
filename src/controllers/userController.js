@@ -1,4 +1,10 @@
-const { User, Productinchart, Cart } = require("../db");
+const {
+  User,
+  Productinchart,
+  Cart,
+  Historiccarts,
+  Historicproduct,
+} = require("../db");
 const users = require("../utils/usersDB");
 
 const getUsers = async () => {
@@ -58,6 +64,17 @@ const userToDB = async () => {
     });
     return usersEnable;
   }
+};
+
+const userProducts = async (userid) => {
+  let response = await Historicproduct.findAll({
+    where: {
+      userid: userid,
+    },
+  });
+  console.log("historic products son...");
+  console.log(response);
+  return response;
 };
 
 const usersDelete = async () => {
@@ -206,4 +223,5 @@ module.exports = {
   updateInfo,
   userbymail,
   usersDelete,
+  userProducts,
 };
