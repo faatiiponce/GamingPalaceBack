@@ -73,6 +73,17 @@ async function allStatics() {
   return response;
 }
 
+// async function allStaticsId(userid) {
+//   let response = await Historicproduct.findAll({
+//     where: {
+//       userid: userid
+//     }}
+//   );
+//   console.log("historic products son...");
+//   console.log(response);
+//   return response;
+// }
+
 async function registerpurchase(userid) {
   console.log("ENTRANDO A registerpurchase EN CONTROLLERS");
   console.log("USER ID ES...");

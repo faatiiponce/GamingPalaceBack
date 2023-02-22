@@ -29,12 +29,13 @@ const deleteallfav = require("./deleteAllFavorite");
 const changeproduct3 = require("./changeproduct");
 
 const registerpurchaseroute = require("./Statistics");
+const userProducts = require("./userProducts");
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
-
 //STATISTICS
-router.use("/stats", registerpurchaseroute)
+router.use("/stats", registerpurchaseroute);
+router.use("/userProducts", userProducts);
 //UPDATE PRODUCT
 //(idproduct, productname, namedisplay, price, imageurl, trademark, category, description, disabled) por body
 router.use("/change", changeproduct3);
