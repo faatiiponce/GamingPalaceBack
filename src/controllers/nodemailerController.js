@@ -49,7 +49,8 @@ async function nmailer(body) {
   let mapping = "";
 
   for (let i = 0; i < body.prodsPay.length; i++) {
-    mapping = mapping + `<tr>\n`;
+    mapping =
+      mapping + `<tr style='color: white; padding: 5px; text-align: center'>\n`;
     mapping =
       mapping + `<td style='color: white'>${body.prodsPay[i].name}</td>\n`;
     mapping =
@@ -84,7 +85,7 @@ async function nmailer(body) {
 		</tr>
 		<tr>
 			<td style='border: 1px solid #dddddd; text-align: left; padding: 8px;'><p style='font-size: 16px; margin-bottom: 10px; color: #95c827'>Le agradecemos por su compra de hardware en nuestra tienda en línea. Adjunto encontrará un recibo detallado de su compra.</p></td>
-			<td style='border: 1px solid #dddddd; text-align: left; padding: 8px;'><p style='font-size: 16px; margin-bottom: 10px; color: #95c827'>aca iria una imagen</p></td>
+			<td style='border: 1px solid #dddddd; text-align: left; padding: 8px;'><p style='font-size: 16px; margin-bottom: 10px; color: #95c827'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlkqP2D7Fhg_A3U0D3tHBhJy0f3dwWbMEUAZ2cya1Wy363HpUT2iWd_rIYMLHbafHhyXU&usqp=CAU' alt='*'/></p></td>
 		</tr>
     <div style='border: 5px solid black; background-color: color: #95c827'>
   <table>
@@ -95,7 +96,7 @@ async function nmailer(body) {
       <th style='border: 1px solid #dddddd; text-align: left; padding: 8px;'><h3 style='color: white'>Unit Price<h3/></th>
     </tr>
     
-      <tr style='color: white'>
+      <tr style='color: white; display: flex; justify-content: center; text-align: center; padding: 5px'>
         ${mapping}
       </tr>
       
