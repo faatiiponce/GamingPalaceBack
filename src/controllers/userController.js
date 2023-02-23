@@ -169,7 +169,8 @@ const updateInfo = async (
   image,
   address,
   role,
-  verified
+  verified,
+  disabled
 ) => {
   //const { name, email, password, image, address, role } = req.body;
   console.log("ENTRANDO A UPDATEINFO");
@@ -184,6 +185,7 @@ const updateInfo = async (
       address: address,
       role: role,
       verified: verified,
+      disabled: disabled,
     },
     { where: { id: id } }
   );
