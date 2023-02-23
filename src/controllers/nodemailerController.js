@@ -41,8 +41,8 @@ async function nmailer(body) {
     port: 587,
     //secure: true,
     auth: {
-      user: "aob@live.com.ar", //USUARIO O DIRECCIÓN DE EMAIL EN ESE SERVER
-      pass: "sLh3jU6FK1nvHfyW", //CONTRASEÑA EN ESE SERVER
+      user: "eliaspiolatto77@hotmail.com", //USUARIO O DIRECCIÓN DE EMAIL EN ESE SERVER
+      pass: "nbRBYaEsmUTQLANK", //CONTRASEÑA EN ESE SERVER
     },
   });
   //ARMAR CUERPO DE EMAIL Y ENVIAR
